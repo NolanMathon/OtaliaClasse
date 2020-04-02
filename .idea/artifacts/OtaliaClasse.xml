@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="OtaliaClasse">
+    <output-path>$PROJECT_DIR$/../plugin-jar</output-path>
+    <root id="archive" name="OtaliaClasse.jar">
+      <element id="module-output" name="OtaliaClasse" />
+    </root>
+  </artifact>
+</component>

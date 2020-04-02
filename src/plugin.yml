@@ -1,0 +1,7 @@
+name: OtaliaClasse
+main: fr.hegsis.otaliaclasse
+version: 1.0
+author: HegSiS
+commands:
+  classe:
+    aliases: class
