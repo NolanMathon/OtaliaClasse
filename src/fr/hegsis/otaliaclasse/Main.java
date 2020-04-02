@@ -1,9 +1,15 @@
 package fr.hegsis.otaliaclasse;
 
 import fr.hegsis.otaliaclasse.commands.ClasseCommand;
+import fr.hegsis.otaliaclasse.quests.Quest;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Main extends JavaPlugin {
+
+    public Map<Integer, Quest> quests = new HashMap<>();
 
     @Override
     public void onEnable() {
