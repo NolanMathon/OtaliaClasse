@@ -5,3 +5,4 @@ author: HegSiS
 commands:
   classe:
     aliases: class
+    description: Commandes pour connaêtre sa progression de classe

@@ -1,5 +1,6 @@
 package fr.hegsis.otaliaclasse;
 
+import fr.hegsis.otaliaclasse.commands.ClasseCommand;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class Main extends JavaPlugin {
@@ -11,7 +12,7 @@ public class Main extends JavaPlugin {
         // Dossier du plugin
         if (!getDataFolder().exists()) { getDataFolder().mkdir(); }
 
-
+        // Commande /classe
         getCommand("classe").setExecutor(new ClasseCommand(this));
     }
 }
