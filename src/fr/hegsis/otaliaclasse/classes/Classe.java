@@ -21,4 +21,16 @@ public class Classe {
     public List<String> getPlayerList() {
         return playerList;
     }
+
+    public void addPlayer(String s) {
+        playerList.add(s);
+    }
+
+    public void removePlayer(String s) {
+        playerList.remove(s);
+    }
+
+    public boolean containPlayer(String s) {
+        return playerList.contains(s);
+    }
 }
