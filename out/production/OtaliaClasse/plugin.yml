@@ -1,5 +1,5 @@
 name: OtaliaClasse
-main: fr.hegsis.otaliaclasse
+main: fr.hegsis.otaliaclasse.Main
 version: 1.0
 author: HegSiS
 commands:

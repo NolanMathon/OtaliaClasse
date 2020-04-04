@@ -21,8 +21,10 @@ public class Main extends JavaPlugin {
 
         // Dossier du plugin
         if (!getDataFolder().exists()) { getDataFolder().mkdir(); }
+        saveDefaultConfig();
 
         registerListeners();
+        setInventories();
 
         // Commande /classe
         getCommand("classe").setExecutor(new ClasseCommand(this));

@@ -9,6 +9,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 public class SetDefaultInventory {
 
+    // Menu qui permet de choisir entre la classe Pirate et Titan lors de la première connection
     public static Inventory setDefaultChooseInventory(Main main) {
         Inventory inv = Bukkit.createInventory(null, 27, main.getConfig().getString("choosing-menu.title").replaceAll("&", "§"));
         ItemStack it;
