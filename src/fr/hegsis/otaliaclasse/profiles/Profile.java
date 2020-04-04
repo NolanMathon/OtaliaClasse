@@ -1,9 +1,12 @@
 package fr.hegsis.otaliaclasse.profiles;
 
+import fr.hegsis.otaliaclasse.quests.Quest;
+
+import java.util.Map;
 import java.util.UUID;
 
 public class Profile {
     private UUID uuid;
     private String userName;
-    private int lastQuestId;
+    private Map<Quest, Integer> progression;
 }

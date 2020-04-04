@@ -1,23 +1,27 @@
 package fr.hegsis.otaliaclasse.quests;
 
+import fr.hegsis.otaliaclasse.classes.ClasseType;
 import org.bukkit.Material;
 
 public class Quest {
     private int id;
-    private QuestType questType;
+    private ClasseType classeType;
+    private QuestAction questAction;
     private int amount;
     private Material item;
 
-    public Quest(int id, QuestType questType, int amount, Material item) {
+    public Quest(int id, ClasseType classeType, QuestAction questAction, int amount, Material item) {
         this.id = id;
-        this.questType = questType;
+        this.classeType = classeType;
+        this.questAction = questAction;
         this.amount = amount;
         this.item = item;
     }
 
-    public Quest(int id, QuestType questType, int amount) {
+    public Quest(int id, ClasseType classeType, QuestAction questAction, int amount) {
         this.id = id;
-        this.questType = questType;
+        this.classeType = classeType;
+        this.questAction = questAction;
         this.amount = amount;
     }
 
@@ -25,8 +29,12 @@ public class Quest {
         return id;
     }
 
-    public QuestType getQuestType() {
-        return questType;
+    public ClasseType getClasseType() {
+        return classeType;
+    }
+
+    public QuestAction getQuestType() {
+        return questAction;
     }
 
     public int getAmount() {

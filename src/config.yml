@@ -1,0 +1,19 @@
+# Plugin made by HegSiS
+# For Otalia
+
+choosing-menu:
+  title: "&6Choix de la classe"
+  pirate:
+    item: SKULL
+    data: 0
+    title: "&3Pirate"
+    description:
+      - ""
+      - "&bClasse Pirate"
+  titan:
+    item: SKULL
+    data: 1
+    title: "&6Titan"
+      description:
+        - ""
+        - "&eClasse titan"
