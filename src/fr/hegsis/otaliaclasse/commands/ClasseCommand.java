@@ -26,7 +26,7 @@ public class ClasseCommand  implements CommandExecutor {
             return true;
         }
 
-        main.sendMessage("already-classe", p, main.playersProfile.get(p.getName()).getClasseType().toString());
+        p.openInventory(main.classes.get(main.playersProfile.get(p.getName()).getClasseType()).getClasseInventory());
         return true;
     }
 }

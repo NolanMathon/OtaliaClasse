@@ -5,7 +5,6 @@ import fr.hegsis.otaliaclasse.classes.ClasseType;
 import fr.hegsis.otaliaclasse.commands.ClasseCommand;
 import fr.hegsis.otaliaclasse.listeners.*;
 import fr.hegsis.otaliaclasse.profiles.Profile;
-import fr.hegsis.otaliaclasse.quests.Quest;
 import fr.hegsis.otaliaclasse.utils.SetDefaultInventory;
 import fr.hegsis.otaliaclasse.utils.SetQuestsList;
 import fr.hegsis.otaliaclasse.utils.file.json.JsonFileUtils;
@@ -21,7 +20,6 @@ import org.bukkit.plugin.java.JavaPlugin;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class Main extends JavaPlugin {
@@ -45,9 +43,6 @@ public class Main extends JavaPlugin {
         registerListeners(); // Méthode qui permet l'enregistrement des class d'events
         createClasses(); // Méthode qui permet de créer les deux classes
         setInventories(); // Méthode qui permet de set tous les inventaires
-
-        List<Quest> titanQuestsList = SetQuestsList.setTitanQuests();
-        List<Quest> pirateQuestsList = SetQuestsList.setPirateQuests();
 
         // Commande /classe
         getCommand("classe").setExecutor(new ClasseCommand(this));
@@ -79,11 +74,13 @@ public class Main extends JavaPlugin {
 
     private void setInventories() {
         firstChoose = SetDefaultInventory.setDefaultChooseInventory(this);
+        classes.get(ClasseType.PIRATE).setClasseInventory(SetDefaultInventory.setDefaultClasseMenuInventory(this, ClasseType.PIRATE));
+        classes.get(ClasseType.TITAN).setClasseInventory(SetDefaultInventory.setDefaultClasseMenuInventory(this, ClasseType.TITAN));
     }
 
     private void createClasses() {
-        this.classes.put(ClasseType.PIRATE, new Classe(new HashMap<>(), new ArrayList<>(), ClasseType.PIRATE));
-        this.classes.put(ClasseType.TITAN, new Classe(new HashMap<>(), new ArrayList<>(), ClasseType.TITAN));
+        classes.put(ClasseType.PIRATE, new Classe(SetQuestsList.setQuestList(YamlFiles.PIRATE_QUESTS), new ArrayList<>(), ClasseType.PIRATE));
+        classes.put(ClasseType.TITAN, new Classe(SetQuestsList.setQuestList(YamlFiles.TITAN_QUESTS), new ArrayList<>(), ClasseType.TITAN));
     }
 
     public ProfileSerializationManager getProfileSerializationManager() {

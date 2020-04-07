@@ -28,7 +28,7 @@ quest-type-menu:
       description:
         - "&7Progression &f→ &e%progression%"
         - ""
-        - "&7Quêtes terminée &f→ &a%done%"
+        - "&7Quêtes terminées &f→ &a%done%"
         - "&7Quêtes restantes &f→ &c%available%"
     FARMEUR:
       item: WHEAT
@@ -37,7 +37,7 @@ quest-type-menu:
       description:
         - "&7Progression &f→ &e%progression%"
         - ""
-        - "&7Quêtes terminée &f→ &a%done%"
+        - "&7Quêtes terminées &f→ &a%done%"
         - "&7Quêtes restantes &f→ &c%available%"
     PECHEUR:
       item: RAW_FISH
@@ -46,7 +46,7 @@ quest-type-menu:
       description:
         - "&7Progression &f→ &e%progression%"
         - ""
-        - "&7Quêtes terminée &f→ &a%done%"
+        - "&7Quêtes terminées &f→ &a%done%"
         - "&7Quêtes restantes &f→ &c%available%"
     CONSTRUCTEURMINEUR:
       item: GRASS
@@ -55,7 +55,7 @@ quest-type-menu:
       description:
         - "&7Progression &f→ &e%progression%"
         - ""
-        - "&7Quêtes terminée &f→ &a%done%"
+        - "&7Quêtes terminées &f→ &a%done%"
         - "&7Quêtes restantes &f→ &c%available%"
     DIVERS:
       item: GOLDEN_APPLE
@@ -64,7 +64,7 @@ quest-type-menu:
       description:
         - "&7Progression &f→ &e%progression%"
         - ""
-        - "&7Quêtes terminée &f→ &a%done%"
+        - "&7Quêtes terminées &f→ &a%done%"
         - "&7Quêtes restantes &f→ &c%available%"
 
 necessary-xp:
@@ -117,5 +117,4 @@ rewards:
 
 messages:
   on-join-no-classe: "&2Vous n'avez toujours pas selectionné de classe &7: &a/classe &2!"
-  already-classe: "&2Vous faites déjà parti de la classe &a%data% &2!"
   join-classe: "&2Vous avez rejoint la classe &a%data% &2!"
