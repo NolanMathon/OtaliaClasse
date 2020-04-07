@@ -5,6 +5,7 @@ import fr.hegsis.otaliaclasse.commands.ClasseCommand;
 import fr.hegsis.otaliaclasse.listeners.*;
 import fr.hegsis.otaliaclasse.profiles.Profile;
 import fr.hegsis.otaliaclasse.utils.SetDefaultInventory;
+import fr.hegsis.otaliaclasse.utils.file.json.ProfileSerializationManager;
 import org.bukkit.Bukkit;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.plugin.PluginManager;
@@ -15,6 +16,8 @@ import java.util.Map;
 
 public class Main extends JavaPlugin {
 
+    private ProfileSerializationManager profileSerializationManager;
+
     public Classe pirate;
     public Classe titan;
     public Inventory firstChoose;
@@ -22,7 +25,7 @@ public class Main extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        this.getServer().getConsoleSender().sendMessage("§7OtaliaClasse §5→ §aON §f§l(By HegSiS)");
+        this.profileSerializationManager = new ProfileSerializationManager();
 
         // Dossier du plugin
         if (!getDataFolder().exists()) { getDataFolder().mkdir(); }
@@ -33,6 +36,8 @@ public class Main extends JavaPlugin {
 
         // Commande /classe
         getCommand("classe").setExecutor(new ClasseCommand(this));
+
+        this.getServer().getConsoleSender().sendMessage("§7OtaliaClasse §5→ §aON §f§l(By HegSiS)");
     }
 
     private void registerListeners() {
@@ -48,5 +53,9 @@ public class Main extends JavaPlugin {
 
     private void setInventories() {
         firstChoose = SetDefaultInventory.setDefaultChooseInventory(this);
+    }
+
+    public ProfileSerializationManager getProfileSerializationManager() {
+        return this.profileSerializationManager;
     }
 }
