@@ -1,6 +1,5 @@
 package fr.hegsis.otaliaclasse.quests;
 
-import fr.hegsis.otaliaclasse.classes.ClasseType;
 import org.bukkit.Material;
 import org.bukkit.entity.EntityType;
 

@@ -7,5 +7,6 @@ public enum QuestAction {
     TUER,
     TUER_A_LA_SUITE,
     FABRIQUER,
-    MANGER
+    MANGER,
+    PECHER
 }

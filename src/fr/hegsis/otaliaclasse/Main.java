@@ -46,7 +46,8 @@ public class Main extends JavaPlugin {
         createClasses(); // Méthode qui permet de créer les deux classes
         setInventories(); // Méthode qui permet de set tous les inventaires
 
-        List<Quest> questsList = SetQuestsList.setTitanQuests();
+        List<Quest> titanQuestsList = SetQuestsList.setTitanQuests();
+        List<Quest> pirateQuestsList = SetQuestsList.setPirateQuests();
 
         // Commande /classe
         getCommand("classe").setExecutor(new ClasseCommand(this));
