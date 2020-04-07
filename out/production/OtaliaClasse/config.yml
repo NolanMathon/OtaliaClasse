@@ -17,3 +17,56 @@ choosing-menu:
     description:
       - " "
       - "&eClasse titan"
+
+necessary-xp:
+  0to1: 10000
+  1to2: 25000
+  2to3: 40000
+  3to4: 60000
+  4to5: 90000
+  5to6: 130000
+
+rewarrds:
+  pirate:
+    level-1:
+      - DIAMOND_SWORD;1;0
+      - DIAMOND_PICKAXE
+    level-2:
+      - DIAMOND_SWORD;1;0
+      - DIAMOND_PICKAXE
+    level-3:
+      - DIAMOND_SWORD;1;0
+      - DIAMOND_PICKAXE
+    level-4:
+      - DIAMOND_SWORD;1;0
+      - DIAMOND_PICKAXE
+    level-5:
+      - DIAMOND_SWORD;1;0
+      - DIAMOND_PICKAXE
+    level-6:
+      - DIAMOND_SWORD;1;0
+      - DIAMOND_PICKAXE
+  titan:
+    level-1:
+      - DIAMOND_SWORD;1;0
+      - DIAMOND_PICKAXE
+    level-2:
+      - DIAMOND_SWORD;1;0
+      - DIAMOND_PICKAXE
+    level-3:
+      - DIAMOND_SWORD;1;0
+      - DIAMOND_PICKAXE
+    level-4:
+      - DIAMOND_SWORD;1;0
+      - DIAMOND_PICKAXE
+    level-5:
+      - DIAMOND_SWORD;1;0
+      - DIAMOND_PICKAXE
+    level-6:
+      - DIAMOND_SWORD;1;0
+      - DIAMOND_PICKAXE
+
+messages:
+  on-join-no-classe: "&2Vous n'avez toujours pas selectionné de classe &7: &a/classe &2!"
+  already-classe: "&2Vous faites déjà parti de la classe &a%data% &2!"
+  join-classe: "&2Vous avez rejoint la classe &a%data% &2!"

@@ -66,3 +66,7 @@ rewarrds:
       - DIAMOND_SWORD;1;0
       - DIAMOND_PICKAXE
 
+messages:
+  on-join-no-classe: "&2Vous n'avez toujours pas selectionné de classe &7: &a/classe &2!"
+  already-classe: "&2Vous faites déjà parti de la classe &a%data% &2!"
+  join-classe: "&2Vous avez rejoint la classe &a%data% &2!"

@@ -21,9 +21,12 @@ public class ClasseCommand  implements CommandExecutor {
 
         Player p = (Player) sender;
 
-        //if (main.pirate.getPlayerList().contains(p.getName()) || main.titan.getPlayerList().contains(p.getName())) {
+        if (!main.playersProfile.containsKey(p.getName())) {
             p.openInventory(main.firstChoose);
-        //}
+            return true;
+        }
+
+        main.sendMessage("already-classe", p, main.playersProfile.get(p.getName()).getClasseType().toString());
         return true;
     }
 }

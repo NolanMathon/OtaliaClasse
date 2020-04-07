@@ -51,8 +51,4 @@ public class JoinQuitListeners implements Listener {
         }
 
     }
-
-    private void saveJson(Profile profile) {
-
-    }
 }

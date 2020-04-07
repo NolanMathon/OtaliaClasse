@@ -8,10 +8,12 @@ import java.util.Map;
 public class Classe {
     private Map<Integer, Quest> questMap;
     private List<String> playerList;
+    private ClasseType classeType;
 
-    public Classe(Map<Integer, Quest> questMap, List<String> playerList) {
+    public Classe(Map<Integer, Quest> questMap, List<String> playerList, ClasseType classeType) {
         this.questMap = questMap;
         this.playerList = playerList;
+        this.classeType = classeType;
     }
 
     public Map<Integer, Quest> getQuestMap() {
@@ -32,5 +34,9 @@ public class Classe {
 
     public boolean containPlayer(String s) {
         return playerList.contains(s);
+    }
+
+    public ClasseType getClasseType() {
+        return classeType;
     }
 }

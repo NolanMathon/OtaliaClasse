@@ -12,9 +12,9 @@ public class Profile {
     private int classExp;
     private int[] doneQuestId;
     private int[] activeQuestId;
-    private int progressionQuest;
+    private int[] progressionQuest;
 
-    public Profile(UUID uuid, String userName, ClasseType classeType, int classLevel, int classExp, int[] doneQuestId, int[] activeQuestId, int progressionQuest) {
+    public Profile(UUID uuid, String userName, ClasseType classeType, int classLevel, int classExp, int[] doneQuestId, int[] activeQuestId, int[] progressionQuest) {
         this.uuid = uuid;
         this.userName = userName;
         this.classeType = classeType;
@@ -81,11 +81,11 @@ public class Profile {
         this.activeQuestId = activeQuestId;
     }
 
-    public int getProgressionQuest() {
-        return progressionQuest;
+    public void setProgressionQuest(int[] progressionQuest) {
+        this.progressionQuest = progressionQuest;
     }
 
-    public void setProgressionQuest(int progressionQuest) {
-        this.progressionQuest = progressionQuest;
+    public int[] getProgressionQuest() {
+        return progressionQuest;
     }
 }

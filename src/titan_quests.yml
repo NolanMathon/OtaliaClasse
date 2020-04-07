@@ -1,0 +1,305 @@
+# Type de quêtes : PVP | FARMEUR | PECHEUR | CONSTRUCTEURMINEUR | DIVERS
+# Action de quêtes : CASSER | POSER | RECOLTER | TUER | TUER_A_LA_SUITE | FABRIQUER | MANGER
+
+quests:
+  1:
+    type: PVP
+    action: TUER
+    amount: 5
+    entity: PLAYER
+    xp-reward: 7100
+  2:
+    type: PVP
+    action: TUER
+    amount: 15
+    entity: PLAYER
+    xp-reward: 7100
+  3:
+    type: PVP
+    action: TUER
+    amount: 30
+    entity: PLAYER
+    xp-reward: 7100
+  4:
+    type: PVP
+    action: TUER
+    amount: 50
+    entity: PLAYER
+    xp-reward: 7100
+  5:
+    type: PVP
+    action: TUER
+    amount: 100
+    entity: PLAYER
+    xp-reward: 7100
+  6:
+    type: PVP
+    action: TUER_A_LA_SUITE
+    amount: 5
+    entity: PLAYER
+    xp-reward: 7100
+  7:
+    type: PVP
+    action: TUER_A_LA_SUITE
+    amount: 10
+    entity: PLAYER
+    xp-reward: 7100
+  8:
+    type: PVP
+    action: TUER_A_LA_SUITE
+    amount: 20
+    entity: PLAYER
+    xp-reward: 7100
+  9:
+    type: PVP
+    action: TUER_A_LA_SUITE
+    amount: 30
+    entity: PLAYER
+    xp-reward: 7100
+  10:
+    type: PVP
+    action: TUER_A_LA_SUITE
+    amount: 50
+    entity: PLAYER
+    xp-reward: 7100
+  11:
+    type: FARMEUR
+    action: RECOLTER
+    amount: 1000
+    material: MELON_BLOCK
+    xp-reward: 7100
+  12:
+    type: FARMEUR
+    action: RECOLTER
+    amount: 15000
+    material: MELON_BLOCK
+    xp-reward: 7100
+  13:
+    type: FARMEUR
+    action: RECOLTER
+    amount: 50000
+    material: MELON_BLOCK
+    xp-reward: 7100
+  14:
+    type: FARMEUR
+    action: RECOLTER
+    amount: 1000
+    material: SUGAR_CANE_BLOCK
+    xp-reward: 7100
+  15:
+    type: FARMEUR
+    action: RECOLTER
+    amount: 15000
+    material: SUGAR_CANE_BLOCK
+    xp-reward: 7100
+  16:
+    type: FARMEUR
+    action: RECOLTER
+    amount: 50000
+    material: SUGAR_CANE_BLOCK
+    xp-reward: 7100
+  17:
+    type: FARMEUR
+    action: RECOLTER
+    amount: 1000
+    material: CACTUS
+    xp-reward: 7100
+  18:
+    type: FARMEUR
+    action: RECOLTER
+    amount: 15000
+    material: CACTUS
+    xp-reward: 7100
+  19:
+    type: FARMEUR
+    action: RECOLTER
+    amount: 50000
+    material: CACTUS
+    xp-reward: 7100
+  20:
+    type: FARMEUR
+    action: RECOLTER
+    amount: 50
+    material: APPLE
+    xp-reward: 7100
+  21:
+    type: CONSTRUCTEURMINEUR
+    action: POSER
+    amount: 1500
+    xp-reward: 7100
+  22:
+    type: CONSTRUCTEURMINEUR
+    action: POSER
+    amount: 15000
+    xp-reward: 7100
+  23:
+    type: CONSTRUCTEURMINEUR
+    action: POSER
+    amount: 150000
+    xp-reward: 7100
+  24:
+    type: CONSTRUCTEURMINEUR
+    action: CASSER
+    amount: 1500
+    material: STONE
+    xp-reward: 7100
+  25:
+    type: CONSTRUCTEURMINEUR
+    action: CASSER
+    amount: 15000
+    material: STONE
+    xp-reward: 7100
+  26:
+    type: CONSTRUCTEURMINEUR
+    action: CASSER
+    amount: 150000
+    material: STONE
+    xp-reward: 7100
+  27:
+    type: CONSTRUCTEURMINEUR
+    action: CASSER
+    amount: 150
+    material: OBSIDIAN
+    xp-reward: 7100
+  28:
+    type: CONSTRUCTEURMINEUR
+    action: CASSER
+    amount: 500
+    material: OBSIDIAN
+    xp-reward: 7100
+  29:
+    type: CONSTRUCTEURMINEUR
+    action: CASSER
+    amount: 1000
+    material: OBSIDIAN
+    xp-reward: 7100
+  30:
+    type: CONSTRUCTEURMINEUR
+    action: CASSER
+    amount: 10000
+    material: SAND
+    xp-reward: 7100
+  31:
+    type: DIVERS
+    action: FABRIQUER
+    amount: 5
+    material: GOLDEN_APPLE
+    data: 1
+    xp-reward: 7100
+  32:
+    type: DIVERS
+    action: FABRIQUER
+    amount: 15
+    material: GOLDEN_APPLE
+    data: 1
+    xp-reward: 7100
+  33:
+    type: DIVERS
+    action: FABRIQUER
+    amount: 1
+    material: BEACON
+    data: 1
+    xp-reward: 7100
+  34:
+    type: DIVERS
+    action: FABRIQUER
+    amount: 3
+    material: ENDERCHEST
+    xp-reward: 7100
+  35:
+    type: DIVERS
+    action: FABRIQUER
+    amount: 50
+    material: TNT
+    xp-reward: 7100
+  36:
+    type: DIVERS
+    action: FABRIQUER
+    amount: 1
+    material: FISHING_ROD
+    xp-reward: 7100
+  37:
+    type: DIVERS
+    action: FABRIQUER
+    amount: 1
+    material: ENCHANTMENT_TABLE
+    xp-reward: 7100
+  38:
+    type: DIVERS
+    action: FABRIQUER
+    amount: 50
+    material: FURNACE
+    xp-reward: 7100
+  39:
+    type: DIVERS
+    action: FABRIQUER
+    amount: 1
+    material: GOLDEN_APPLE # Harvester
+    xp-reward: 7100
+  40:
+    type: DIVERS
+    action: FABRIQUER
+    amount: 1
+    material: GOLDEN_APPLE # Unclaim finder
+    xp-reward: 7100
+  41:
+    type: DIVERS
+    action: FABRIQUER
+    amount: 15
+    material: DIAMOND_BLOCK
+    xp-reward: 7100
+  42:
+    type: DIVERS
+    action: FABRIQUER
+    amount: 15
+    material: GOLD_BLOCK
+    xp-reward: 7100
+  43:
+    type: DIVERS
+    action: CASSER
+    amount: 100
+    material: DIAMOND_ORE
+    xp-reward: 7100
+  44:
+    type: DIVERS
+    action: CASSER
+    amount: 100
+    material: GOLD_ORE
+    xp-reward: 7100
+  45:
+    type: DIVERS
+    action: FABRIQUER
+    amount: 4
+    material: DIAMOND_CHESTPLATE
+    xp-reward: 7100
+  46:
+    type: DIVERS
+    action: MANGER
+    amount: 20
+    material: GOLDEN_APPLE
+    data: 1
+    xp-reward: 7100
+  47:
+    type: DIVERS
+    action: CASSER
+    amount: 30
+    material: EMERALD_ORE
+    xp-reward: 7100
+  48:
+    type: DIVERS
+    action: TUER
+    amount: 500
+    entity: SKELETON
+    xp-reward: 7100
+  49:
+    type: DIVERS
+    action: TUER
+    amount: 500
+    entity: ZOMBIE
+    xp-reward: 7100
+  50:
+    type: DIVERS
+    action: TUER
+    amount: 500
+    entity: PIG_ZOMBIE
+    xp-reward: 7100
