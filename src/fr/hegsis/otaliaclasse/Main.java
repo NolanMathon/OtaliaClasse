@@ -44,10 +44,30 @@ public class Main extends JavaPlugin {
         createClasses(); // Méthode qui permet de créer les deux classes
         setInventories(); // Méthode qui permet de set tous les inventaires
 
+        if (Bukkit.getOnlinePlayers().size() >= 1) {
+            for (Player p : Bukkit.getOnlinePlayers()) {
+                loadProfileFromJson(p);
+            }
+        }
+
         // Commande /classe
         getCommand("classe").setExecutor(new ClasseCommand(this));
 
         this.getServer().getConsoleSender().sendMessage("§7OtaliaClasse §5→ §aON §f§l(By HegSiS)");
+    }
+
+    @Override
+    public void onDisable() {
+
+        // On sauvegarde la progression de tous les joueurs
+        if (Bukkit.getOnlinePlayers().size() > 0) {
+            for (Player p : Bukkit.getOnlinePlayers()) {
+                if (playersProfile.containsKey(p.getName())) {
+                    saveProfileOnJson(p, playersProfile.get(p.getName()));
+                    playersProfile.remove(p.getName());
+                }
+            }
+        }
     }
 
     private void saveDefaultFiles() {
@@ -94,6 +114,17 @@ public class Main extends JavaPlugin {
         String json = profileSerializationManager.serialize(profile);
 
         JsonFileUtils.saveJson(file, json);
+    }
+
+    public void loadProfileFromJson(Player p) {
+        File file = new File(new File(getDataFolder(), "/profiles/"), p.getName() + ".json");
+
+        if (file.exists()) {
+            ProfileSerializationManager profileSerializationManager = getProfileSerializationManager();
+            String json = JsonFileUtils.loadJson(file);
+            Profile profile = profileSerializationManager.deserialize(json);
+            playersProfile.put(p.getName(), profile);
+        }
     }
 
     public void sendMessage(String path, Player p, String replacement) {

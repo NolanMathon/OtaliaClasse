@@ -1,6 +1,7 @@
 # Plugin made by HegSiS
 # For Otalia
 
+# Menu avec le choix de la classe pirate ou titan
 choosing-menu:
   title: "&6Choix de la classe"
   pirate:
@@ -18,6 +19,7 @@ choosing-menu:
       - " "
       - "&eClasse titan"
 
+# Menu avec les catégories de quêtes
 quest-type-menu:
   title: "&6&lCatégories de quêtes"
   categories:
@@ -66,6 +68,24 @@ quest-type-menu:
         - ""
         - "&7Quêtes terminées &f→ &a%done%"
         - "&7Quêtes restantes &f→ &c%available%"
+
+# Menu des quêtes
+quests-menu:
+  title: "a6alQuêtes"
+  quest-done:
+    item: ENCHANTED_BOOK
+    data: 0
+    title: "&e%action% &7%amount% &e%objectif%"
+  ongoing-quest:
+    item: BOOK_AND_QUILL
+    data: 0
+    title: "&e%action% &7%amount% &e%objectif%"
+    description:
+      - "&7Progression &f→ &e%progression%&7/&6%objectif%"
+  futur-quest:
+    item: BOOK
+    data: 0
+    title: "&cQuête vérouillée !"
 
 necessary-xp:
   0to1: 10000
@@ -116,5 +136,14 @@ rewards:
       - DIAMOND_PICKAXE
 
 messages:
+  no-permission: "&cVous n'avez pas la permission de faire la commande &4%data% &c!"
   on-join-no-classe: "&2Vous n'avez toujours pas selectionné de classe &7: &a/classe &2!"
   join-classe: "&2Vous avez rejoint la classe &a%data% &2!"
+
+title:
+  join-classe:
+    title: "&6Vous avez rejoint la classe"
+    subtitle: "&e%classe%"
+  level-up:
+    title: "&6Vous venez de passer level &e%lvl% &6!"
+    subtitle: "&7/classe rewards &f→ &epour récuperer votre récompense !"

@@ -3,6 +3,7 @@ package fr.hegsis.otaliaclasse.listeners;
 import fr.hegsis.otaliaclasse.Main;
 import fr.hegsis.otaliaclasse.classes.ClasseType;
 import fr.hegsis.otaliaclasse.profiles.Profile;
+import fr.hegsis.otaliaclasse.utils.Utils;
 import org.bukkit.entity.HumanEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -53,10 +54,10 @@ public class InventoryListeners implements Listener {
                     Player p = (Player) he;
                     main.classes.get(classeType).addPlayer(p.getName());
                     Profile profile = new Profile(p.getUniqueId(), p.getName(), classeType, 0, 0, null, activeQuests, progressQuests);
-                    main.sendMessage("join-classe", p, classeType.toString().toLowerCase());
                     main.saveProfileOnJson(p, profile);
                     main.playersProfile.put(p.getName(), profile);
                     p.closeInventory();
+                    Utils.sendTitle(p, main.getConfig().getString("title.join-classe.title").replaceAll("&", "§"), main.getConfig().getString("title.join-classe.subtitle").replaceAll("&", "§").replaceAll("%classe%", classeType.toString()));
                     return;
                 }
             }

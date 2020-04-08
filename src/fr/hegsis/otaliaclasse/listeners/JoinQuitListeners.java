@@ -35,19 +35,16 @@ public class JoinQuitListeners implements Listener {
             return;
         }
 
-        p.sendMessage("§6Vous n'avez toujours pas selectionner de classe §7: §e/classe §6!");
+        main.sendMessage("on-join-no-classe", p, "");
     }
 
     @EventHandler
     public void onPlayerQuit(PlayerQuitEvent e) {
         Player p = e.getPlayer();
-        File file = new File(saveDir, p.getName() + ".json");
 
-        if (file.exists() && main.playersProfile.containsKey(p.getName())) {
-            ProfileSerializationManager profileSerializationManager = main.getProfileSerializationManager();
-            String json = profileSerializationManager.serialize(main.playersProfile.get(p.getName()));
-
-            JsonFileUtils.saveJson(file, json);
+        if (main.playersProfile.containsKey(p.getName())) {
+            main.saveProfileOnJson(p, main.playersProfile.get(p.getName()));
+            main.playersProfile.remove(p.getName());
         }
 
     }
