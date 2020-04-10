@@ -5,7 +5,6 @@ import fr.hegsis.otaliaclasse.classes.Classe;
 import fr.hegsis.otaliaclasse.profiles.Profile;
 import fr.hegsis.otaliaclasse.quests.Quest;
 import fr.hegsis.otaliaclasse.quests.QuestType;
-import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -37,7 +36,7 @@ public class ClasseCommand  implements CommandExecutor {
                 return true;
             }
 
-            openCategoriesMenu(p);
+            openCategoriesMenu(p, main);
             p.openInventory(main.classes.get(main.playersProfile.get(p.getName()).getClasseType()).getClasseInventory());
             return true;
         }
@@ -76,7 +75,7 @@ public class ClasseCommand  implements CommandExecutor {
         return false;
     }
 
-    private void openCategoriesMenu(Player p) {
+    public static void openCategoriesMenu(Player p, Main main) {
         Profile profile = main.playersProfile.get(p.getName());
         int[] doneQuests = profile.getDoneQuestId();
         Classe classe = main.classes.get(profile.getClasseType());
@@ -140,7 +139,7 @@ public class ClasseCommand  implements CommandExecutor {
         p.openInventory(inv);
     }
 
-    private int[] getEmplacement(int size) {
+    private static int[] getEmplacement(int size) {
         int[] emplacement = null;
         switch (size) {
             case 1:

@@ -71,7 +71,7 @@ quest-type-menu:
 
 # Menu des quêtes
 quests-menu:
-  title: "a6alQuêtes"
+  title: "&6&lQuêtes"
   quest-done:
     item: ENCHANTED_BOOK
     data: 0
@@ -81,7 +81,7 @@ quests-menu:
     data: 0
     title: "&e%action% &7%amount% &e%objectif%"
     description:
-      - "&7Progression &f→ &e%progression%&7/&6%objectif%"
+      - "&7Progression &f→ &e%progression%&7/&6%amount%"
   futur-quest:
     item: BOOK
     data: 0

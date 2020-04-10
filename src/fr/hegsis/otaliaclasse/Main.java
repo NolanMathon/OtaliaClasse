@@ -58,7 +58,6 @@ public class Main extends JavaPlugin {
 
     @Override
     public void onDisable() {
-
         // On sauvegarde la progression de tous les joueurs
         if (Bukkit.getOnlinePlayers().size() > 0) {
             for (Player p : Bukkit.getOnlinePlayers()) {

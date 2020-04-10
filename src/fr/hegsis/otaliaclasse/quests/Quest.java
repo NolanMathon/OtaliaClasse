@@ -44,7 +44,7 @@ public class Quest {
         this.expRewards = expRewards;
     }
 
-    public Quest(int id, QuestType questType, QuestAction questAction, EntityType entityType, int expRewards) {
+    public Quest(int id, QuestType questType, QuestAction questAction, int amount, EntityType entityType, int expRewards) {
         this.id = id;
         this.questType = questType;
         this.questAction = questAction;

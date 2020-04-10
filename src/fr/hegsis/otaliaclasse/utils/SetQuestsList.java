@@ -42,7 +42,7 @@ public class SetQuestsList {
                 // Si la quête c'est tuer ou tuer plusieurs personnes sans mourrir
                 if (questAction == QuestAction.TUER || questAction == QuestAction.TUER_A_LA_SUITE) {
                     entityType = EntityType.valueOf(cs.getString(s+".entity"));
-                    questList.add(new Quest(questId, questType, questAction, entityType, xpReward));
+                    questList.add(new Quest(questId, questType, questAction, amount, entityType, xpReward));
                 }
 
                 // Si la quête c'est casser, recolter, fabriquer, manger ou pecher
