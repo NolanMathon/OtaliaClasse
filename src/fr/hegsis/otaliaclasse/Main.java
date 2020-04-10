@@ -5,6 +5,7 @@ import fr.hegsis.otaliaclasse.classes.ClasseType;
 import fr.hegsis.otaliaclasse.commands.ClasseCommand;
 import fr.hegsis.otaliaclasse.listeners.*;
 import fr.hegsis.otaliaclasse.profiles.Profile;
+import fr.hegsis.otaliaclasse.rewards.Reward;
 import fr.hegsis.otaliaclasse.utils.SetDefaultInventory;
 import fr.hegsis.otaliaclasse.utils.SetQuestsList;
 import fr.hegsis.otaliaclasse.utils.file.json.JsonFileUtils;
@@ -29,9 +30,12 @@ public class Main extends JavaPlugin {
 
     private ProfileSerializationManager profileSerializationManager;
 
-    public Map<ClasseType, Classe> classes = new HashMap<>();
     public Inventory firstChoose;
+    public Inventory rewardMenu;
+
+    public Map<ClasseType, Classe> classes = new HashMap<>();
     public Map<String, Profile> playersProfile = new HashMap<>();
+    public Map<Integer, Reward> rewards = new HashMap<>();
 
     @Override
     public void onEnable() {
@@ -85,6 +89,7 @@ public class Main extends JavaPlugin {
         pm.registerEvents(new InventoryListeners(this), this);
         pm.registerEvents(new JoinQuitListeners(this), this);
         pm.registerEvents(new QuestBreakListeners(this), this);
+        pm.registerEvents(new QuestConsumeListeners(this), this);
         pm.registerEvents(new QuestCraftListeners(this), this);
         pm.registerEvents(new QuestHarvestListeners(this), this);
         pm.registerEvents(new QuestKillListeners(this), this);
@@ -95,6 +100,7 @@ public class Main extends JavaPlugin {
         firstChoose = SetDefaultInventory.setDefaultChooseInventory(this);
         classes.get(ClasseType.PIRATE).setClasseInventory(SetDefaultInventory.setDefaultClasseMenuInventory(this, ClasseType.PIRATE));
         classes.get(ClasseType.TITAN).setClasseInventory(SetDefaultInventory.setDefaultClasseMenuInventory(this, ClasseType.TITAN));
+        rewardMenu = SetDefaultInventory.setDefaultRewardMenu(this);
     }
 
     private void createClasses() {

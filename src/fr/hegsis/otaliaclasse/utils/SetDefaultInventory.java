@@ -68,6 +68,49 @@ public class SetDefaultInventory {
         return inv;
     }
 
+    public static Inventory setDefaultRewardMenu(Main main) {
+        Inventory inv = Bukkit.createInventory(null, 27, main.getConfig().getString("rewards-menu.title").replaceAll("&", "§"));
+        ItemStack it;
+        ItemMeta im;
+
+        // Bleu foncé
+        it = new ItemStack(Material.STAINED_GLASS_PANE, 1, (short) 11);
+        im = it.getItemMeta();
+        im.setDisplayName(" ");
+        it.setItemMeta(im);
+        int[] emplacement = new int[] {10, 11, 12, 14, 15, 16};
+
+        for (int i=0; i<27; i++) {
+            if (i<10 || i>16) {
+                inv.setItem(i, it);
+            }
+        }
+
+        for (int i=1; i<7; i++) {
+            it = new ItemStack(Material.getMaterial(main.getConfig().getString("rewards-menu.level" + i + ".item")), 1, (short) main.getConfig().getInt("rewards-menu.level" + i + ".data"));
+            im = it.getItemMeta();
+            im.setDisplayName(main.getConfig().getString("rewards-menu.locked").replaceAll("&", "§").replaceAll("%level%", ""+i));
+            it.setItemMeta(im);
+            inv.setItem(emplacement[i-1], it);
+        }
+
+        // Blanc
+        it = new ItemStack(Material.STAINED_GLASS_PANE, 1, (short) 0);
+        im = it.getItemMeta();
+        im.setDisplayName(" ");
+        it.setItemMeta(im);
+        inv.setItem(13, it);
+
+        // Flèche de retour
+        it = new ItemStack(Material.ARROW);
+        im = it.getItemMeta();
+        im.setDisplayName("§c§lRETOUR");
+        it.setItemMeta(im);
+        inv.setItem(22, it);
+
+        return inv;
+    }
+
     public static Inventory setDefaultClasseMenuInventory(Main main, ClasseType classeType) {
         Inventory inv = Bukkit.createInventory(null, 27, main.getConfig().getString("quest-type-menu.title").replaceAll("&", "§"));
         ItemStack it;

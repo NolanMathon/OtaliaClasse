@@ -5,10 +5,12 @@ import fr.hegsis.otaliaclasse.classes.Classe;
 import fr.hegsis.otaliaclasse.profiles.Profile;
 import fr.hegsis.otaliaclasse.utils.Utils;
 import org.bukkit.entity.Player;
+import org.jetbrains.annotations.Contract;
+import org.jetbrains.annotations.NotNull;
 
 public class QuestManager {
 
-    public static void addOneToQuestProgression(Player p, Profile profile, Quest q, int emplacement, Main main) {
+    public static void addOneToQuestProgression(Player p, @NotNull Profile profile, Quest q, int emplacement, Main main) {
         profile.setQuestProgression(emplacement, profile.getQuestProgression(emplacement)+1);
         if ((profile.getQuestProgression(emplacement)%100) == 0) {
             main.saveProfileOnJson(p, profile);
@@ -16,7 +18,7 @@ public class QuestManager {
         main.playersProfile.replace(p.getName(), isQuestDone(p, profile, q, emplacement, main));
     }
 
-    private static Profile isQuestDone(Player p, Profile profile, Quest q, int emplacement, Main main) {
+    private static Profile isQuestDone(Player p, @NotNull Profile profile, @NotNull Quest q, int emplacement, Main main) {
         int objectif = q.getAmount();
         int progression = profile.getQuestProgression(emplacement);
 
@@ -25,7 +27,8 @@ public class QuestManager {
         profile.addDoneQuestId(emplacement);
 
         Classe classe = main.classes.get(profile.getClasseType());
-        if (classe.getQuestList().get(q.getId()).getQuestType() == q.getQuestType()) {
+
+        if (q.getId() < classe.getQuestList().size() && classe.getQuestList().get(q.getId()).getQuestType() == q.getQuestType()) {
             profile.setNewActiveQuestId(emplacement, classe.getQuestList().get(q.getId()).getId());
             profile.setQuestProgression(emplacement, 0);
         } else {
@@ -41,7 +44,8 @@ public class QuestManager {
         return newProfile;
     }
 
-    private static Profile isLevelingUp(Player p, Profile profile, Main main) {
+    @Contract("_, _, _ -> param2")
+    private static Profile isLevelingUp(Player p, @NotNull Profile profile, @NotNull Main main) {
         int playerClassExp = profile.getClassExp();
         int playerClassLevel = profile.getClassLevel();
         int necessaryExp = main.getConfig().getInt("necessary-xp."+playerClassLevel+"to"+(playerClassLevel+1));
@@ -57,7 +61,7 @@ public class QuestManager {
         return profile;
     }
 
-    private static void questDoneEvent(Player p, Quest q, Main main) {
+    private static void questDoneEvent(Player p, @NotNull Quest q, Main main) {
         String objectif;
         if (q.getQuestAction() == QuestAction.POSER) {
             objectif = "Blocks";
@@ -76,7 +80,7 @@ public class QuestManager {
                         .replaceAll("%objectif%", objectif));
     }
 
-    private static void levelUpEvent(Player p, Profile profile, Main main) {
+    private static void levelUpEvent(Player p, @NotNull Profile profile, @NotNull Main main) {
         Utils.sendTitle(p, main.getConfig().getString("title.level-up.title").replaceAll("&", "§").replaceAll("%lvl%", ""+profile.getClassLevel()), main.getConfig().getString("title.level-up.subtitle").replaceAll("&", "§"));
     }
 }

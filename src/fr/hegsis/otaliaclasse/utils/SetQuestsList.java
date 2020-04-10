@@ -48,7 +48,7 @@ public class SetQuestsList {
                 // Si la quête c'est casser, recolter, fabriquer, manger ou pecher
                 if (questAction == QuestAction.CASSER || questAction == QuestAction.RECOLTER || questAction == QuestAction.FABRIQUER || questAction == QuestAction.MANGER || questAction == QuestAction.PECHER) {
                     material = Material.valueOf(cs.getString(s+".material"));
-                    data = (short) cs.getInt(s+"data");
+                    data = (short) cs.getInt(s+".data");
                     questList.add(new Quest(questId, questType, questAction, amount, material, data, xpReward));
                 }
 

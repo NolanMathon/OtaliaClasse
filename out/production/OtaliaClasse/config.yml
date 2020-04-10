@@ -1,6 +1,16 @@
 # Plugin made by HegSiS
 # For Otalia
 
+# Player Head with global stats
+global-stats:
+  name: "&eClasse &6%classe% &eniveau &6%level%"
+  description:
+    - "&7Xp &f→ &e%exp%xp"
+    - "&e&o%expneeded% &7&opour atteindre le niveau supérieur"
+    - ""
+    - "&7Quêtes &f→ &e%done%&7/&6%all%"
+    - "&7Progression globalle &f→ &e%progression%&7%"
+
 # Menu avec le choix de la classe pirate ou titan
 choosing-menu:
   title: "&6Choix de la classe"
@@ -86,6 +96,31 @@ quests-menu:
     item: BOOK
     data: 0
     title: "&cQuête vérouillée !"
+
+# Menu des récompenses
+rewards-menu:
+  title: "&6&lRécompenses"
+  level1:
+    item: COAL
+    data: 0
+  level2:
+    item: INK_SACK
+    data: 4
+  level3:
+    item: IRON_INGOT
+    data: 0
+  level4:
+    item: GOLD_INGOT
+    data: 0
+  level5:
+    item: DIAMOND
+    data: 0
+  level6:
+    item: EMERALD
+    data: 0
+  locked: "&7Niveau &e%level% &f→ &cVous n'avez pas encore le niveau requis !"
+  unlocked: "&7Niveau &e%level% &f→ &aRécompense disponible"
+  already-taken: "&7Niveau &e%level% &f→ &eVous avez déjà récupéré cette récompense !"
 
 necessary-xp:
   0to1: 10000

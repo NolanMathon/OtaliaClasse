@@ -38,23 +38,39 @@ public class QuestCraftListeners implements Listener {
         ItemStack craftItem = e.getRecipe().getResult();
         Material itemToCraft;
         short data;
-        int progression;
 
-
-        System.out.println(e.getRecipe().getResult().getAmount());
-
-        for (int j=0; j<craftItem.getAmount(); j++) {
+        for (int j=0; j<getAmountCraftItem(craftItem.getType(), e); j++) {
+            profile = main.playersProfile.get(p.getName());
             for (int i=0; i<profile.getActiveQuestId().length; i++) {
                 Quest q = questList.get(profile.getActiveQuestId()[i]-1);
                 if (q.getQuestAction() == QuestAction.FABRIQUER){
                     itemToCraft = q.getItem();
                     data = q.getData();
-                    progression = profile.getProgressionQuest()[i];
                     if (craftItem.getType() == itemToCraft && craftItem.getDurability() == data) {
                         QuestManager.addOneToQuestProgression(p, profile, q, i, main);
                     }
                 }
             }
         }
+    }
+
+    private int getAmountCraftItem(Material m, CraftItemEvent e){
+        if (e.isCancelled()) return 0;
+
+        if(!e.getRecipe().getResult().getType().equals(m)) return 0;
+
+        int amount = e.getRecipe().getResult().getAmount();
+
+        if (e.isShiftClick()) {
+            int max = e.getInventory().getMaxStackSize();
+            ItemStack[] matrix = e.getInventory().getMatrix();
+            for (ItemStack is: matrix) {
+                if (is == null || is.getType().equals(Material.AIR)) continue;
+                int tmp = is.getAmount();
+                if (tmp < max && tmp > 0) max = tmp;
+            }
+            amount *= max;
+        }
+        return amount;
     }
 }

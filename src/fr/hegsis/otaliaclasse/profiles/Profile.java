@@ -13,8 +13,9 @@ public class Profile {
     private int[] doneQuestId;
     private int[] activeQuestId;
     private int[] progressionQuest;
+    private int[] rewardsClaimed;
 
-    public Profile(UUID uuid, String userName, ClasseType classeType, int classLevel, int classExp, int[] doneQuestId, int[] activeQuestId, int[] progressionQuest) {
+    public Profile(UUID uuid, String userName, ClasseType classeType, int classLevel, int classExp, int[] doneQuestId, int[] activeQuestId, int[] progressionQuest, int[] rewardsClaimed) {
         this.uuid = uuid;
         this.userName = userName;
         this.classeType = classeType;
@@ -23,6 +24,7 @@ public class Profile {
         this.doneQuestId = doneQuestId;
         this.activeQuestId = activeQuestId;
         this.progressionQuest = progressionQuest;
+        this.rewardsClaimed = rewardsClaimed;
     }
 
     public UUID getUuid() {
@@ -91,11 +93,15 @@ public class Profile {
 
     public void addDoneQuestId(int emplacement) {
         int questId = this.activeQuestId[emplacement];
-        int[] newDoneQuestId = new int[doneQuestId.length + 1];
-        for (int i=0; i<doneQuestId.length; i++) {
+        int length = 0;
+        if (doneQuestId != null) {
+            length = doneQuestId.length;
+        }
+        int[] newDoneQuestId = new int[length + 1];
+        for (int i=0; i<length; i++) {
             newDoneQuestId[i] = doneQuestId[i];
         }
-        newDoneQuestId[doneQuestId.length] = questId;
+        newDoneQuestId[length] = questId;
         this.doneQuestId = newDoneQuestId;
     }
 
@@ -140,6 +146,20 @@ public class Profile {
         this.progressionQuest = newQuestProgression;
     }
 
+    public int[] getRewardsClaimed() {
+        return rewardsClaimed;
+    }
 
-
+    public void addRewardsClaimed(int rewardLevel) {
+        int length = 0;
+        if (this.rewardsClaimed != null) {
+            length = this.rewardsClaimed.length;
+        }
+        int[] rewardsClaimed = new int[length+1];
+        for (int i=0; i<length; i++) {
+            rewardsClaimed[i] = this.rewardsClaimed[i];
+        }
+        rewardsClaimed[length] = rewardLevel;
+        this.rewardsClaimed = rewardsClaimed;
+    }
 }
