@@ -147,3 +147,6 @@ title:
   level-up:
     title: "&6Vous venez de passer level &e%lvl% &6!"
     subtitle: "&7/classe rewards &f→ &epour récuperer votre récompense !"
+  quest-done:
+    title: "&6Vous venez de terminer la quête"
+    subtitle: "&7%action% &e%amount% &7%objectif%"

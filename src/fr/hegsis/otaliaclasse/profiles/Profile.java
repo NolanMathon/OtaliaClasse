@@ -88,4 +88,58 @@ public class Profile {
     public int[] getProgressionQuest() {
         return progressionQuest;
     }
+
+    public void addDoneQuestId(int emplacement) {
+        int questId = this.activeQuestId[emplacement];
+        int[] newDoneQuestId = new int[doneQuestId.length + 1];
+        for (int i=0; i<doneQuestId.length; i++) {
+            newDoneQuestId[i] = doneQuestId[i];
+        }
+        newDoneQuestId[doneQuestId.length] = questId;
+        this.doneQuestId = newDoneQuestId;
+    }
+
+    public void setQuestProgression(int emplacement, int newProgression) {
+        this.progressionQuest[emplacement] = newProgression;
+    }
+
+    public int getQuestProgression(int emplacement) {
+        return this.progressionQuest[emplacement];
+    }
+
+    public void setNewActiveQuestId(int emplacement, int newQuestId) {
+        this.activeQuestId[emplacement] = newQuestId;
+    }
+
+    public void removeActiveQuestId(int emplacement) {
+        int[] newActiveQuestId = new int[activeQuestId.length - 1];
+        for (int i=0; i<activeQuestId.length; i++) {
+            if (i > emplacement) {
+                newActiveQuestId[i-1] = activeQuestId[i];
+            }
+
+            if (i < emplacement) {
+                newActiveQuestId[i] = activeQuestId[i];
+            }
+        }
+        this.activeQuestId = newActiveQuestId;
+    }
+
+
+    public void removeQuestProgression(int emplacement) {
+        int[] newQuestProgression = new int[progressionQuest.length - 1];
+        for (int i=0; i<progressionQuest.length; i++) {
+            if (i > emplacement) {
+                newQuestProgression[i-1] = progressionQuest[i];
+            }
+
+            if (i < emplacement) {
+                newQuestProgression[i] = progressionQuest[i];
+            }
+        }
+        this.progressionQuest = newQuestProgression;
+    }
+
+
+
 }

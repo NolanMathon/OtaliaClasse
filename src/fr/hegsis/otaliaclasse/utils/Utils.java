@@ -14,6 +14,6 @@ public class Utils {
     }
 
     public static void sendTitle(Player p, String title, String subtitle) {
-        p.sendTitle(new Title(title, subtitle, 5, 60, 5));
+        p.sendTitle(new Title(title, subtitle, 10, 80, 10));
     }
 }
