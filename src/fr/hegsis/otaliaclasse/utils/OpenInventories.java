@@ -8,6 +8,7 @@ import fr.hegsis.otaliaclasse.quests.QuestAction;
 import fr.hegsis.otaliaclasse.quests.QuestType;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
+import org.bukkit.craftbukkit.v1_8_R3.inventory.CraftItemStack;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
@@ -253,7 +254,12 @@ public class OpenInventories {
                     objectif = "BLOCKS";
                 } else {
                     if (q.getEntityType() == null) {
-                        objectif = q.getItem().toString();
+                        if (q.getData() != 0) {
+                            ItemStack obj = new ItemStack(q.getItem(), 1, q.getData());
+                            objectif = CraftItemStack.asNMSCopy(obj).getName().toUpperCase();
+                        } else {
+                            objectif = q.getItem().toString();
+                        }
                     } else {
                         objectif = q.getEntityType().toString();
                     }
@@ -270,7 +276,12 @@ public class OpenInventories {
                     objectif = "BLOCKS";
                 } else {
                     if (activeQuest.getEntityType() == null) {
-                        objectif = activeQuest.getItem().toString();
+                        if (activeQuest.getData() != 0) {
+                            ItemStack obj = new ItemStack(activeQuest.getItem(), 1, activeQuest.getData());
+                            objectif = CraftItemStack.asNMSCopy(obj).getName().toUpperCase();
+                        } else {
+                            objectif = activeQuest.getItem().toString();
+                        }
                     } else {
                         objectif = activeQuest.getEntityType().toString();
                     }

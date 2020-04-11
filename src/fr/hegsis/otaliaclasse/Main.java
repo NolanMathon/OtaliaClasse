@@ -87,6 +87,7 @@ public class Main extends JavaPlugin {
         pm.registerEvents(new QuestBreakListeners(this), this);
         pm.registerEvents(new QuestConsumeListeners(this), this);
         pm.registerEvents(new QuestCraftListeners(this), this);
+        pm.registerEvents(new QuestFishListeners(this), this);
         pm.registerEvents(new QuestHarvestListeners(this), this);
         pm.registerEvents(new QuestKillListeners(this), this);
         pm.registerEvents(new QuestPlaceListeners(this), this);
