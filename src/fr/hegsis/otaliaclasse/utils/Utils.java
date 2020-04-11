@@ -3,9 +3,14 @@ package fr.hegsis.otaliaclasse.utils;
 import fr.hegsis.otaliaclasse.Main;
 import fr.hegsis.otaliaclasse.classes.Classe;
 import fr.hegsis.otaliaclasse.profiles.Profile;
+import org.bukkit.Color;
+import org.bukkit.FireworkEffect;
 import org.bukkit.Material;
+import org.bukkit.entity.EntityType;
+import org.bukkit.entity.Firework;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.FireworkMeta;
 import org.bukkit.inventory.meta.SkullMeta;
 import org.github.paperspigot.Title;
 
@@ -23,6 +28,13 @@ public class Utils {
 
     public static void sendTitle(Player p, String title, String subtitle) {
         p.sendTitle(new Title(title, subtitle, 10, 80, 10));
+    }
+
+    public static void sendFirework(Player p, Color color) {
+        Firework fw = (Firework) p.getWorld().spawnEntity(p.getLocation(), EntityType.FIREWORK);
+        FireworkMeta meta = fw.getFireworkMeta();
+        meta.addEffect(FireworkEffect.builder().withColor(color).trail(true).build());
+        fw.setFireworkMeta(meta);
     }
 
     public static ItemStack getGlobalStatsPlayerHead(Player p, Main main) {

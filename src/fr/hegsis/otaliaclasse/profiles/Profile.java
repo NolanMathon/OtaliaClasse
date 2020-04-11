@@ -27,28 +27,8 @@ public class Profile {
         this.rewardsClaimed = rewardsClaimed;
     }
 
-    public UUID getUuid() {
-        return uuid;
-    }
-
-    public void setUuid(UUID uuid) {
-        this.uuid = uuid;
-    }
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
     public ClasseType getClasseType() {
         return classeType;
-    }
-
-    public void setClasseType(ClasseType classeType) {
-        this.classeType = classeType;
     }
 
     public int getClassLevel() {
@@ -71,20 +51,8 @@ public class Profile {
         return doneQuestId;
     }
 
-    public void setDoneQuestId(int[] doneQuestId) {
-        this.doneQuestId = doneQuestId;
-    }
-
     public int[] getActiveQuestId() {
         return activeQuestId;
-    }
-
-    public void setActiveQuestId(int[] activeQuestId) {
-        this.activeQuestId = activeQuestId;
-    }
-
-    public void setProgressionQuest(int[] progressionQuest) {
-        this.progressionQuest = progressionQuest;
     }
 
     public int[] getProgressionQuest() {

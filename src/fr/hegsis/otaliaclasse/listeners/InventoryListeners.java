@@ -56,7 +56,6 @@ public class InventoryListeners implements Listener {
             for(HumanEntity he:e.getViewers()) {
                 if(he instanceof Player) {
                     Player p = (Player) he;
-                    main.classes.get(classeType).addPlayer(p.getName());
                     Profile profile = new Profile(p.getUniqueId(), p.getName(), classeType, 0, 0, null, activeQuests, progressQuests, null);
                     main.saveProfileOnJson(p, profile);
                     main.playersProfile.put(p.getName(), profile);

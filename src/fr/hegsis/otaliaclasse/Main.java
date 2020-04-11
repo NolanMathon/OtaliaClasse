@@ -5,7 +5,6 @@ import fr.hegsis.otaliaclasse.classes.ClasseType;
 import fr.hegsis.otaliaclasse.commands.ClasseCommand;
 import fr.hegsis.otaliaclasse.listeners.*;
 import fr.hegsis.otaliaclasse.profiles.Profile;
-import fr.hegsis.otaliaclasse.rewards.Reward;
 import fr.hegsis.otaliaclasse.utils.SetDefaultInventory;
 import fr.hegsis.otaliaclasse.utils.SetQuestsList;
 import fr.hegsis.otaliaclasse.utils.SetRewardsList;
@@ -20,7 +19,6 @@ import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -102,8 +100,8 @@ public class Main extends JavaPlugin {
     }
 
     private void createClasses() {
-        classes.put(ClasseType.PIRATE, new Classe(SetQuestsList.setQuestList(YamlFiles.PIRATE_QUESTS), new ArrayList<>(), ClasseType.PIRATE, SetRewardsList.setRewardsList(YamlFiles.PIRATE_REWARDS)));
-        classes.put(ClasseType.TITAN, new Classe(SetQuestsList.setQuestList(YamlFiles.TITAN_QUESTS), new ArrayList<>(), ClasseType.TITAN, SetRewardsList.setRewardsList(YamlFiles.TITAN_REWARDS)));
+        classes.put(ClasseType.PIRATE, new Classe(SetQuestsList.setQuestList(YamlFiles.PIRATE_QUESTS), ClasseType.PIRATE, SetRewardsList.setRewardsList(YamlFiles.PIRATE_REWARDS)));
+        classes.put(ClasseType.TITAN, new Classe(SetQuestsList.setQuestList(YamlFiles.TITAN_QUESTS), ClasseType.TITAN, SetRewardsList.setRewardsList(YamlFiles.TITAN_REWARDS)));
     }
 
     public ProfileSerializationManager getProfileSerializationManager() {

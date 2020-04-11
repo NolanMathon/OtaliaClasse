@@ -4,6 +4,7 @@ import fr.hegsis.otaliaclasse.Main;
 import fr.hegsis.otaliaclasse.classes.Classe;
 import fr.hegsis.otaliaclasse.profiles.Profile;
 import fr.hegsis.otaliaclasse.utils.Utils;
+import org.bukkit.Color;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
@@ -16,6 +17,12 @@ public class QuestManager {
             main.saveProfileOnJson(p, profile);
         }
         main.playersProfile.replace(p.getName(), isQuestDone(p, profile, q, emplacement, main));
+    }
+
+    public static void resetQuestProgression(Player p, @NotNull Profile profile, Quest q, int emplacement, @NotNull Main main) {
+        profile.setQuestProgression(emplacement, 0);
+        main.saveProfileOnJson(p, profile);
+        main.playersProfile.replace(p.getName(), profile);
     }
 
     private static Profile isQuestDone(Player p, @NotNull Profile profile, @NotNull Quest q, int emplacement, Main main) {
@@ -82,5 +89,8 @@ public class QuestManager {
 
     private static void levelUpEvent(Player p, @NotNull Profile profile, @NotNull Main main) {
         Utils.sendTitle(p, main.getConfig().getString("title.level-up.title").replaceAll("&", "§").replaceAll("%lvl%", ""+profile.getClassLevel()), main.getConfig().getString("title.level-up.subtitle").replaceAll("&", "§"));
+        Utils.sendFirework(p, Color.BLUE);
+        Utils.sendFirework(p, Color.WHITE);
+        Utils.sendFirework(p, Color.RED);
     }
 }

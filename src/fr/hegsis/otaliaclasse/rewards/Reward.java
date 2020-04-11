@@ -20,10 +20,6 @@ public class Reward {
         this.rewardsItem = new ArrayList<>();
     }
 
-    public List<ItemStack> getRewardsItem() {
-        return rewardsItem;
-    }
-
     public void addRewardsItem(ItemStack itemStack) {
         this.rewardsItem.add(itemStack);
     }

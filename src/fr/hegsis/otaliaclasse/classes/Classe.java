@@ -9,36 +9,18 @@ import java.util.Map;
 
 public class Classe {
     private List<Quest> questList;
-    private List<String> playerList;
     private ClasseType classeType;
     private Inventory classeInventory;
     private Map<Integer, Reward> classeRewards;
 
-    public Classe(List<Quest> questList, List<String> playerList, ClasseType classeType, Map<Integer, Reward> classeRewards) {
+    public Classe(List<Quest> questList, ClasseType classeType, Map<Integer, Reward> classeRewards) {
         this.questList = questList;
-        this.playerList = playerList;
         this.classeType = classeType;
         this.classeRewards = classeRewards;
     }
 
     public List<Quest> getQuestList() {
         return questList;
-    }
-
-    public List<String> getPlayerList() {
-        return playerList;
-    }
-
-    public void addPlayer(String s) {
-        playerList.add(s);
-    }
-
-    public void removePlayer(String s) {
-        playerList.remove(s);
-    }
-
-    public boolean containPlayer(String s) {
-        return playerList.contains(s);
     }
 
     public ClasseType getClasseType() {
