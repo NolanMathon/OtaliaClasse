@@ -157,6 +157,13 @@ public class SetDefaultInventory {
             }
         }
 
+        it = new ItemStack(Material.getMaterial(main.getConfig().getString("quest-type-menu.go-to-reward-menu.item")), 1, (short) main.getConfig().getInt("quest-type-menu.go-to-reward-menu.data"));
+        im = it.getItemMeta();
+        im.setDisplayName(main.getConfig().getString("quest-type-menu.go-to-reward-menu.name").replaceAll("&", "§"));
+        it.setItemMeta(im);
+
+        inv.setItem(22, it);
+
         return inv;
     }
 

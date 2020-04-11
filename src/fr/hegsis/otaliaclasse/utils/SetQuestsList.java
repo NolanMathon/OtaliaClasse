@@ -18,7 +18,7 @@ public class SetQuestsList {
     public static List<Quest> setQuestList(YamlFiles yamlFiles) {
         List<Quest> questList = new ArrayList<>();
 
-        FileConfiguration qfc = YamlFileUtils.getFileConfiguration(yamlFiles); //pqfc → pirateQuestsFileConfiguration
+        FileConfiguration qfc = YamlFileUtils.getFileConfiguration(yamlFiles); //qfc → questsFileConfiguration
         ConfigurationSection cs = qfc.getConfigurationSection("quests");
         if (cs!=null) {
             int questId;

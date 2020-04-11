@@ -43,7 +43,7 @@ public class OpenInventories {
             if (i < level) {
                 im.setDisplayName(main.getConfig().getString("rewards-menu.unlocked").replaceAll("&", "§").replaceAll("%level%", ""+(i+1)));
                 for (int reward : levelClaimed) {
-                    if (reward == i) {
+                    if (reward == i+1) {
                         im.setDisplayName(main.getConfig().getString("rewards-menu.already-taken").replaceAll("&", "§").replaceAll("%level%", ""+(i+1)));
                         break;
                     }
@@ -250,7 +250,7 @@ public class OpenInventories {
             if (i<questsDone.size()) {
                 Quest q = questsDone.get(i);
                 if (q.getQuestAction() == QuestAction.POSER) {
-                    objectif = "Blocks";
+                    objectif = "BLOCKS";
                 } else {
                     if (q.getEntityType() == null) {
                         objectif = q.getItem().toString();
@@ -260,14 +260,14 @@ public class OpenInventories {
                 }
                 im.setDisplayName(main.getConfig().getString("quests-menu.quest-done.title")
                         .replaceAll("&", "§")
-                        .replaceAll("%action%", ""+q.getQuestAction())
+                        .replaceAll("%action%", q.getQuestAction().toString().replaceAll("_", " "))
                         .replaceAll("%amount%", ""+q.getAmount())
-                        .replaceAll("%objectif%", objectif));
+                        .replaceAll("%objectif%", objectif.replaceAll("_", " ")));
                 doneQuestIt.setItemMeta(im);
                 inv.setItem(emplacement[i], doneQuestIt);
             } else if (i==questsDone.size()) {
                 if (activeQuest.getQuestAction() == QuestAction.POSER) {
-                    objectif = "Blocks";
+                    objectif = "BLOCKS";
                 } else {
                     if (activeQuest.getEntityType() == null) {
                         objectif = activeQuest.getItem().toString();
@@ -277,9 +277,9 @@ public class OpenInventories {
                 }
                 im = activeQuestIt.getItemMeta();
                 im.setDisplayName(main.getConfig().getString("quests-menu.ongoing-quest.title").replaceAll("&", "§")
-                        .replaceAll("%action%", ""+activeQuest.getQuestAction())
+                        .replaceAll("%action%", activeQuest.getQuestAction().toString().replaceAll("_", " "))
                         .replaceAll("%amount%", ""+activeQuest.getAmount())
-                        .replaceAll("%objectif%", objectif));
+                        .replaceAll("%objectif%", objectif.replaceAll("_", " ")));
                 List<String> lore = main.getConfig().getStringList("quests-menu.ongoing-quest.description");
                 for (int j=0; j<lore.size(); j++) {
                     lore.set(j, lore.get(j).replaceAll("&", "§").replaceAll("%progression%", ""+progression).replaceAll("%amount%", ""+activeQuest.getAmount()));

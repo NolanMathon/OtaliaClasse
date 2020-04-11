@@ -8,6 +8,7 @@ import fr.hegsis.otaliaclasse.profiles.Profile;
 import fr.hegsis.otaliaclasse.rewards.Reward;
 import fr.hegsis.otaliaclasse.utils.SetDefaultInventory;
 import fr.hegsis.otaliaclasse.utils.SetQuestsList;
+import fr.hegsis.otaliaclasse.utils.SetRewardsList;
 import fr.hegsis.otaliaclasse.utils.file.json.JsonFileUtils;
 import fr.hegsis.otaliaclasse.utils.file.json.ProfileSerializationManager;
 import fr.hegsis.otaliaclasse.utils.file.yaml.YamlFileUtils;
@@ -35,7 +36,6 @@ public class Main extends JavaPlugin {
 
     public Map<ClasseType, Classe> classes = new HashMap<>();
     public Map<String, Profile> playersProfile = new HashMap<>();
-    public Map<Integer, Reward> rewards = new HashMap<>();
 
     @Override
     public void onEnable() {
@@ -75,12 +75,10 @@ public class Main extends JavaPlugin {
 
     private void saveDefaultFiles() {
         saveDefaultConfig();
-        if(!YamlFileUtils .getFile(YamlFiles.TITAN_QUESTS).exists()) {
-            saveResource("titan_quests.yml", false);
-        }
-
-        if(!YamlFileUtils .getFile(YamlFiles.PIRATE_QUESTS).exists()) {
-            saveResource("pirate_quests.yml", false);
+        for (YamlFiles yamlFiles : YamlFiles.values()) {
+            if(!YamlFileUtils .getFile(yamlFiles).exists()) {
+                saveResource(yamlFiles.toString().toLowerCase()+".yml", false);
+            }
         }
     }
 
@@ -104,8 +102,8 @@ public class Main extends JavaPlugin {
     }
 
     private void createClasses() {
-        classes.put(ClasseType.PIRATE, new Classe(SetQuestsList.setQuestList(YamlFiles.PIRATE_QUESTS), new ArrayList<>(), ClasseType.PIRATE));
-        classes.put(ClasseType.TITAN, new Classe(SetQuestsList.setQuestList(YamlFiles.TITAN_QUESTS), new ArrayList<>(), ClasseType.TITAN));
+        classes.put(ClasseType.PIRATE, new Classe(SetQuestsList.setQuestList(YamlFiles.PIRATE_QUESTS), new ArrayList<>(), ClasseType.PIRATE, SetRewardsList.setRewardsList(YamlFiles.PIRATE_REWARDS)));
+        classes.put(ClasseType.TITAN, new Classe(SetQuestsList.setQuestList(YamlFiles.TITAN_QUESTS), new ArrayList<>(), ClasseType.TITAN, SetRewardsList.setRewardsList(YamlFiles.TITAN_REWARDS)));
     }
 
     public ProfileSerializationManager getProfileSerializationManager() {

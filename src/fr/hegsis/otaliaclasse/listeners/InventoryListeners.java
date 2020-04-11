@@ -1,6 +1,7 @@
 package fr.hegsis.otaliaclasse.listeners;
 
 import fr.hegsis.otaliaclasse.Main;
+import fr.hegsis.otaliaclasse.classes.ClassManager;
 import fr.hegsis.otaliaclasse.classes.ClasseType;
 import fr.hegsis.otaliaclasse.profiles.Profile;
 import fr.hegsis.otaliaclasse.quests.QuestType;
@@ -80,6 +81,11 @@ public class InventoryListeners implements Listener {
 
             Player p = (Player) e.getWhoClicked();
 
+            if (item.getType() == e.getInventory().getItem(22).getType() && item.getItemMeta().getDisplayName().equalsIgnoreCase(e.getInventory().getItem(22).getItemMeta().getDisplayName())) {
+                OpenInventories.openRewardsMenu(p, main);
+                return;
+            }
+
             for (QuestType q : QuestType.values()) {
                 if (item.getType() == Material.getMaterial(main.getConfig().getString("quest-type-menu.categories."+q+".item"))
                         && item.getItemMeta().getDisplayName().equalsIgnoreCase(main.getConfig().getString("quest-type-menu.categories."+q+".title").replaceAll("&", "§"))) {
@@ -115,10 +121,20 @@ public class InventoryListeners implements Listener {
 
             if (!item.hasItemMeta()) return;
 
+            if (item.getType() == Material.STAINED_GLASS_PANE || item.getType() == Material.SKULL_ITEM) return;
+
             if (item.getType() == Material.ARROW && item.getItemMeta().getDisplayName().equalsIgnoreCase("§c§lRETOUR")) {
                 Player p = (Player) e.getWhoClicked();
                 OpenInventories.openCategoriesMenu(p, main);
                 return;
+            }
+
+            int[] emplacement = new int[] {10, 11, 12, 14, 15, 16};
+            for (int i=0; i<6; i++) {
+                if (item.getType() == main.rewardMenu.getItem(emplacement[i]).getType()) {
+                    ClassManager.giveReward((Player) e.getWhoClicked(), i+1, main);
+                    return;
+                }
             }
         }
     }

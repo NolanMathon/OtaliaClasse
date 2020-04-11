@@ -1,0 +1,78 @@
+# Pour les enchants → NOM_DE_LENCHANT:NIVEAU
+# Ne pas oublié le 2 entre le nom et le niveau
+# Mettre un points virgule si plusieurs enchants
+
+# Si tu ne veux pas mettre d'enchant, de nom ou de description tu peux supprimer les catégories
+
+rewards:
+  level1:
+    0:
+      item: IRON_SWORD
+      data: 0
+      amount: 1
+    1:
+      item: IRON_PICKAXE
+      data: 0
+      amount: 1
+  level2:
+    0:
+      item: IRON_SWORD
+      data: 0
+      amount: 1
+      enchants: DAMAGE_ALL:5;DURABILITY:3
+    1:
+      item: IRON_PICKAXE
+      data: 0
+      amount: 1
+      enchants: DIG_SPEED:5;DURABILITY:3
+      name: "La pioche du futur"
+  level3:
+    0:
+      item: GOLD_SWORD
+      data: 0
+      amount: 1
+    1:
+      item: GOLD_PICKAXE
+      data: 0
+      amount: 1
+      name: "La pioche du futur v2.0"
+  level4:
+    0:
+      item: GOLD_SWORD
+      data: 0
+      amount: 1
+      enchants: DAMAGE_ALL:5;DURABILITY:3
+    1:
+      item: GOLD_PICKAXE
+      data: 0
+      amount: 1
+      enchants: DIG_SPEED:5;DURABILITY:3
+      name: "La pioche du futur v3.0"
+      description:
+        - "&cAvec une super description"
+  level5:
+    0:
+      item: DIAMOND_SWORD
+      data: 0
+      amount: 1
+    1:
+      item: DIAMOND_PICKAXE
+      data: 0
+      amount: 1
+      name: "La pioche du futur v4.0"
+      description:
+        - "&dWoula la description"
+  level6:
+    0:
+      item: DIAMOND_SWORD
+      data: 0
+      amount: 1
+      enchants: DAMAGE_ALL:5;DURABILITY:3
+    1:
+      item: DIAMOND_PICKAXE
+      data: 0
+      amount: 1
+      enchants: DIG_SPEED:5;DURABILITY:3
+      name: "La pioche du futur v5.0"
+      description:
+        - ""

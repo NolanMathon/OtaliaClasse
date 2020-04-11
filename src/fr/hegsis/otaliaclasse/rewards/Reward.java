@@ -3,6 +3,7 @@ package fr.hegsis.otaliaclasse.rewards;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Reward {
@@ -14,23 +15,26 @@ public class Reward {
         this.rewardsItem = rewardsItem;
     }
 
-    public int getLevel() {
-        return level;
-    }
-
-    public void setLevel(int level) {
+    public Reward(int level) {
         this.level = level;
+        this.rewardsItem = new ArrayList<>();
     }
 
     public List<ItemStack> getRewardsItem() {
         return rewardsItem;
     }
 
-    public void setRewardsItem(List<ItemStack> rewardsItem) {
-        this.rewardsItem = rewardsItem;
+    public void addRewardsItem(ItemStack itemStack) {
+        this.rewardsItem.add(itemStack);
     }
 
     public void give(Player p) {
-
+        for (ItemStack it : rewardsItem) {
+            if (p.getInventory().firstEmpty() != -1) {
+                p.getInventory().addItem(it);
+            } else {
+                p.getLocation().getWorld().dropItemNaturally(p.getLocation(), it);
+            }
+        }
     }
 }
