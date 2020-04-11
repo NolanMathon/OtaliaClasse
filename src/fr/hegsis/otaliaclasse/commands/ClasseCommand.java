@@ -44,29 +44,11 @@ public class ClasseCommand  implements CommandExecutor {
                 return true;
             }
 
-            if (args[0].equalsIgnoreCase("reload")) {
-                if (!p.hasPermission("otaliaclasse.reload")) {
-                    main.sendMessage("no-permission", p, "/classe reload");
-                    return false;
-                }
-
-                // A fix
-                main.getPluginLoader().disablePlugin(main);
-                main.getPluginLoader().enablePlugin(main);
-                return true;
-            }
-
             if (args[0].equalsIgnoreCase("help")) {
-                if (!p.hasPermission("otaliaclasse.help")) {
-                    main.sendMessage("no-permission", p, "/classe help");
-                    return false;
-                }
-
                 p.sendMessage("§7§m---------------§6 Classe §7§m---------------");
                 p.sendMessage("");
                 p.sendMessage("§8• §e/classe §f→ §7Menu des classes");
                 p.sendMessage("§8• §e/classe rewards §f→ §7Menu des récompenses");
-                p.sendMessage("§8• §e/classe reload §f→ §7Reload le plugin");
                 p.sendMessage("§8• §e/classe help §f→ §7Affiche cette aide");
                 p.sendMessage("");
                 p.sendMessage("§7§m---------------§6 Classe §7§m---------------");

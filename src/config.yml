@@ -135,9 +135,7 @@ necessary-xp:
   5to6: 130000
 
 messages:
-  no-permission: "&cVous n'avez pas la permission de faire la commande &4%data% &c!"
   on-join-no-classe: "&2Vous n'avez toujours pas selectionné de classe &7: &a/classe &2!"
-  join-classe: "&2Vous avez rejoint la classe &a%data% &2!"
 
 title:
   join-classe:
