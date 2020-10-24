@@ -50,18 +50,18 @@ public class SetDefaultInventory {
         inv.setItem(15, it);
 
         // Pirate
-        it = new ItemStack(Material.getMaterial(main.getConfig().getString("choosing-menu.pirate.item")), 1, (short) main.getConfig().getInt("choosing-menu.pirate.data"));
+        it = new ItemStack(Material.getMaterial(main.getConfig().getString("choosing-menu.dieu.item")), 1, (short) main.getConfig().getInt("choosing-menu.dieu.data"));
         im = it.getItemMeta();
-        im.setDisplayName(main.getConfig().getString("choosing-menu.pirate.title").replaceAll("&", "§"));
-        im.setLore(StringUtils.convertLoreColorCode(main.getConfig().getStringList("choosing-menu.pirate.description")));
+        im.setDisplayName(main.getConfig().getString("choosing-menu.dieu.title").replaceAll("&", "§"));
+        im.setLore(StringUtils.convertLoreColorCode(main.getConfig().getStringList("choosing-menu.dieu.description")));
         it.setItemMeta(im);
         inv.setItem(12, it);
 
         // Titan
-        it = new ItemStack(Material.getMaterial(main.getConfig().getString("choosing-menu.titan.item")), 1, (short) main.getConfig().getInt("choosing-menu.titan.data"));
+        it = new ItemStack(Material.getMaterial(main.getConfig().getString("choosing-menu.demon.item")), 1, (short) main.getConfig().getInt("choosing-menu.demon.data"));
         im = it.getItemMeta();
-        im.setDisplayName(main.getConfig().getString("choosing-menu.titan.title").replaceAll("&", "§"));
-        im.setLore(StringUtils.convertLoreColorCode(main.getConfig().getStringList("choosing-menu.titan.description")));
+        im.setDisplayName(main.getConfig().getString("choosing-menu.demon.title").replaceAll("&", "§"));
+        im.setLore(StringUtils.convertLoreColorCode(main.getConfig().getStringList("choosing-menu.demon.description")));
         it.setItemMeta(im);
         inv.setItem(14, it);
 

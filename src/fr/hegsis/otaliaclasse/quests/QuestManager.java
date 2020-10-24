@@ -68,6 +68,7 @@ public class QuestManager {
         return profile;
     }
 
+    @Deprecated
     private static void questDoneEvent(Player p, @NotNull Quest q, Main main) {
         String objectif;
         if (q.getQuestAction() == QuestAction.POSER) {
@@ -87,6 +88,7 @@ public class QuestManager {
                         .replaceAll("%objectif%", objectif));
     }
 
+    @Deprecated
     private static void levelUpEvent(Player p, @NotNull Profile profile, @NotNull Main main) {
         Utils.sendTitle(p, main.getConfig().getString("title.level-up.title").replaceAll("&", "§").replaceAll("%lvl%", ""+profile.getClassLevel()), main.getConfig().getString("title.level-up.subtitle").replaceAll("&", "§"));
         Utils.sendFirework(p, Color.BLUE);

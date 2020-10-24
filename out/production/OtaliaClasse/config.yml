@@ -14,20 +14,20 @@ global-stats:
 # Menu avec le choix de la classe pirate ou titan
 choosing-menu:
   title: "&6Choix de la classe"
-  pirate:
+  dieu:
     item: SKULL_ITEM
     data: 0
-    title: "&3Pirate"
+    title: "&3Dieu"
     description:
       - " "
-      - "&bClasse Pirate"
-  titan:
+      - "&bClasse Dieu"
+  demon:
     item: SKULL_ITEM
     data: 1
-    title: "&6Titan"
+    title: "&cDemon"
     description:
       - " "
-      - "&eClasse titan"
+      - "&eClasse Demon"
 
 # Menu avec les catégories de quêtes
 quest-type-menu:
@@ -135,9 +135,7 @@ necessary-xp:
   5to6: 130000
 
 messages:
-  no-permission: "&cVous n'avez pas la permission de faire la commande &4%data% &c!"
   on-join-no-classe: "&2Vous n'avez toujours pas selectionné de classe &7: &a/classe &2!"
-  join-classe: "&2Vous avez rejoint la classe &a%data% &2!"
 
 title:
   join-classe:

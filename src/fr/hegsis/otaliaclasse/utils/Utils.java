@@ -12,7 +12,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.FireworkMeta;
 import org.bukkit.inventory.meta.SkullMeta;
-import org.github.paperspigot.Title;
 
 import java.util.List;
 
@@ -26,8 +25,10 @@ public class Utils {
         }
     }
 
+    @Deprecated
     public static void sendTitle(Player p, String title, String subtitle) {
-        p.sendTitle(new Title(title, subtitle, 10, 80, 10));
+        //p.sendTitle(new Title(title, subtitle, 10, 80, 10));
+        p.sendTitle(title, subtitle);
     }
 
     public static void sendFirework(Player p, Color color) {

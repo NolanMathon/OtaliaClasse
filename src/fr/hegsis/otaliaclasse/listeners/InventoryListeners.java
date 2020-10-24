@@ -22,6 +22,7 @@ public class InventoryListeners implements Listener {
         this.main = main;
     }
 
+    @Deprecated
     @EventHandler
     public void onInventoryClick(InventoryClickEvent e) {
         if (e.getClickedInventory() == null) return;
@@ -42,13 +43,13 @@ public class InventoryListeners implements Listener {
             int[] progressQuests = null;
 
             if (item.getItemMeta().getDisplayName().equalsIgnoreCase(main.firstChoose.getItem(12).getItemMeta().getDisplayName())) {
-                classeType = ClasseType.PIRATE;
+                classeType = ClasseType.DIEU;
                 activeQuests = new int[]{1,11,21,31,41};
                 progressQuests = new int[] {0,0,0,0,0};
             }
 
             if (item.getItemMeta().getDisplayName().equalsIgnoreCase(main.firstChoose.getItem(14).getItemMeta().getDisplayName())) {
-                classeType = ClasseType.TITAN;
+                classeType = ClasseType.DEMON;
                 activeQuests = new int[]{1,11,21,31};
                 progressQuests = new int[] {0,0,0,0};
             }

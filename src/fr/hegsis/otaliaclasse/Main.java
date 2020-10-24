@@ -12,10 +12,12 @@ import fr.hegsis.otaliaclasse.utils.file.json.JsonFileUtils;
 import fr.hegsis.otaliaclasse.utils.file.json.ProfileSerializationManager;
 import fr.hegsis.otaliaclasse.utils.file.yaml.YamlFileUtils;
 import fr.hegsis.otaliaclasse.utils.file.yaml.YamlFiles;
+import net.milkbowl.vault.economy.Economy;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.plugin.PluginManager;
+import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
@@ -23,6 +25,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Main extends JavaPlugin {
+
+    public static Economy economy = null;
 
     private static Main instance;
     public static Main getInstance() { return instance; }
@@ -39,6 +43,10 @@ public class Main extends JavaPlugin {
     public void onEnable() {
         this.profileSerializationManager = new ProfileSerializationManager();
         instance = this;
+
+        if(!setupEconomy()) {
+            this.getServer().getConsoleSender().sendMessage("§4Plugin d'économie nécessaire !");
+        }
 
         saveDefaultFiles(); // Méthode qui permet l'enregistrement des fichiers par défaut s'il n'existent pas
 
@@ -71,6 +79,14 @@ public class Main extends JavaPlugin {
         }
     }
 
+    private boolean setupEconomy() {
+        RegisteredServiceProvider<Economy> economyProvider = getServer().getServicesManager().getRegistration(Economy.class);
+        if (economyProvider != null) {
+            economy = (Economy) economyProvider.getProvider();
+        }
+        return economy != null;
+    }
+
     private void saveDefaultFiles() {
         saveDefaultConfig();
         for (YamlFiles yamlFiles : YamlFiles.values()) {
@@ -95,14 +111,14 @@ public class Main extends JavaPlugin {
 
     private void setInventories() {
         firstChoose = SetDefaultInventory.setDefaultChooseInventory(this);
-        classes.get(ClasseType.PIRATE).setClasseInventory(SetDefaultInventory.setDefaultClasseMenuInventory(this, ClasseType.PIRATE));
-        classes.get(ClasseType.TITAN).setClasseInventory(SetDefaultInventory.setDefaultClasseMenuInventory(this, ClasseType.TITAN));
+        classes.get(ClasseType.DIEU).setClasseInventory(SetDefaultInventory.setDefaultClasseMenuInventory(this, ClasseType.DIEU));
+        classes.get(ClasseType.DEMON).setClasseInventory(SetDefaultInventory.setDefaultClasseMenuInventory(this, ClasseType.DEMON));
         rewardMenu = SetDefaultInventory.setDefaultRewardMenu(this);
     }
 
     private void createClasses() {
-        classes.put(ClasseType.PIRATE, new Classe(SetQuestsList.setQuestList(YamlFiles.PIRATE_QUESTS), ClasseType.PIRATE, SetRewardsList.setRewardsList(YamlFiles.PIRATE_REWARDS)));
-        classes.put(ClasseType.TITAN, new Classe(SetQuestsList.setQuestList(YamlFiles.TITAN_QUESTS), ClasseType.TITAN, SetRewardsList.setRewardsList(YamlFiles.TITAN_REWARDS)));
+        classes.put(ClasseType.DIEU, new Classe(SetQuestsList.setQuestList(YamlFiles.DIEU_QUESTS), ClasseType.DIEU, SetRewardsList.setRewardsList(YamlFiles.DIEU_REWARDS)));
+        classes.put(ClasseType.DEMON, new Classe(SetQuestsList.setQuestList(YamlFiles.DEMON_QUESTS), ClasseType.DEMON, SetRewardsList.setRewardsList(YamlFiles.DEMON_REWARDS)));
     }
 
     public ProfileSerializationManager getProfileSerializationManager() {

@@ -2,8 +2,10 @@ package fr.hegsis.otaliaclasse.listeners;
 
 import fr.hegsis.otaliaclasse.Main;
 import fr.hegsis.otaliaclasse.profiles.Profile;
+import fr.hegsis.otaliaclasse.utils.ScoreBoardManager;
 import fr.hegsis.otaliaclasse.utils.file.json.JsonFileUtils;
 import fr.hegsis.otaliaclasse.utils.file.json.ProfileSerializationManager;
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -36,6 +38,13 @@ public class JoinQuitListeners implements Listener {
         }
 
         main.sendMessage("on-join-no-classe", p, "");
+        ScoreBoardManager.setScoreBoard(p);
+        int onlinePlayer = Bukkit.getOnlinePlayers().size();
+        for (Player player : Bukkit.getOnlinePlayers()) {
+            if (p != player) {
+                ScoreBoardManager.updatePlayerScoreboard(p, onlinePlayer);
+            }
+        }
     }
 
     @EventHandler
@@ -47,5 +56,9 @@ public class JoinQuitListeners implements Listener {
             main.playersProfile.remove(p.getName());
         }
 
+        int onlinePlayer = Bukkit.getOnlinePlayers().size();
+        for (Player player : Bukkit.getOnlinePlayers()) {
+            ScoreBoardManager.updatePlayerScoreboard(p, onlinePlayer);
+        }
     }
 }

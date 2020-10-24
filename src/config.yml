@@ -14,20 +14,20 @@ global-stats:
 # Menu avec le choix de la classe pirate ou titan
 choosing-menu:
   title: "&6Choix de la classe"
-  pirate:
+  dieu:
     item: SKULL_ITEM
     data: 0
-    title: "&3Pirate"
+    title: "&3Dieu"
     description:
       - " "
-      - "&bClasse Pirate"
-  titan:
+      - "&bClasse Dieu"
+  demon:
     item: SKULL_ITEM
     data: 1
-    title: "&6Titan"
+    title: "&cDemon"
     description:
       - " "
-      - "&eClasse titan"
+      - "&eClasse Demon"
 
 # Menu avec les catégories de quêtes
 quest-type-menu:
